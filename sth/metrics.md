@@ -20,16 +20,19 @@ metrics是基于opentsdb开发而成，
     rate的意思是求每秒机器提交的counter的结果，可以当做qps看待。代表每个时刻点上，一共出现的xx点数，是线上所有机器相加的结果。
 
 3. 查询query avg + rate
+    
     代表的是线上每台机器平均出现xx的次数
 
     每台机器的qps
 
 4. query count + rate
+    
     统计的是线上有多少机器 对xx结果加和
 
     统计的是线上机器数
 
-5.query p99 + rate
+5. query p99 + rate
+    
     把每台机器xx的时间，从小到大排序，选取前50%，前90%，前99%的数据结果点，也就是50%，90%，99%的数据结果点，表示99%的结果都小于这个数。
 
     用于监控函数延迟。
@@ -38,7 +41,9 @@ metrics是基于opentsdb开发而成，
 
 ### timer
 1. emittimer计数
+
 2. query avg + store
+   
     字段latency.avg
 
     字段的avg是这个时刻点这台机器上平均执行这个操作记录的延迟。
