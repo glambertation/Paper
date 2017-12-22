@@ -10,8 +10,8 @@
 
 * 内建函数
     * startswith 判断开头结尾
-        * if not self.content.startswith('<p>') or not self.content.endswith('</p>'):
-        * self.content = '<p>' + self.content + '</p>' #  <p></p>开头结尾
+        * ``` if not self.content.startswith('<p>') or not self.content.endswith('</p>'): ```
+        * ``` self.content = '<p>' + self.content + '</p>' #  <p></p>开头结尾 ```
 
 * urlencode
      * 当url地址含有中文或者“/”的时候，这是就需要用做urlencode一下编码转换。
