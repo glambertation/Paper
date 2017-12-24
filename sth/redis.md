@@ -1,3 +1,4 @@
+## Redis
 
 和普通的Key-Value结构不同，Redis的Key支持灵活的数据结构，除了strings，还有hashes、lists、 sets 和sorted sets等结构。正是这些灵活的数据结构，丰富了Redis的应用场景，能满足更多业务上的灵活存储需求。
 
@@ -5,7 +6,8 @@ Redis的数据都保存在内存中，而且底层实现上是自己写了epoll 
 
 ### 1. 数据类型
     
-    作为Key-value型数据库，Redis也提供了键(Key)和键值(Value)的映射关系。但是，除了常规的数值或字符串，Redis的键值(value)还可以是以下形式之一：
+作为Key-value型数据库，Redis也提供了键(Key)和键值(Value)的映射关系。但是，除了常规的数值或字符串，Redis的键值(value)还可以是以下形式之一：
+
     * Lists (列表)
 
 　　* Sets (集合)
@@ -14,18 +16,18 @@ Redis的数据都保存在内存中，而且底层实现上是自己写了epoll 
 
 　　* Hashes (哈希表)
 
-　　键值的数据类型决定了该键值支持的操作。Redis支持诸如列表、集合或有序集合的交集、并集、查集等高级原子操作;同时，如果键值的类型是普通数字，Redis则提供自增等原子操作。
+键值的数据类型决定了该键值支持的操作。Redis支持诸如列表、集合或有序集合的交集、并集、查集等高级原子操作;同时，如果键值的类型是普通数字，Redis则提供自增等原子操作。
 
 ### 2. 持久化
 
-    通常，Redis将数据存储于内存中，或被配置为使用虚拟内存。通过两种方式可以实现数据持久化：使用截图的方式，将内存中的数据不断写入磁盘;或使用类似MySQL的日志方式，记录每次更新的日志。前者性能较高，但是可能会引起一定程度的数据丢失;后者相反。
+通常，Redis将数据存储于内存中，或被配置为使用虚拟内存。通过两种方式可以实现数据持久化：使用截图的方式，将内存中的数据不断写入磁盘;或使用类似MySQL的日志方式，记录每次更新的日志。前者性能较高，但是可能会引起一定程度的数据丢失;后者相反。
 
 
 ### 3. 补充原文
 
-    http://langgufu.iteye.com/blog/1434408
+http://langgufu.iteye.com/blog/1434408
 
-    https://www.2cto.com/database/201501/372410.html
+https://www.2cto.com/database/201501/372410.html
 
 ### 4. 各类型及基本操作
 
@@ -61,8 +63,7 @@ Redis的数据都保存在内存中，而且底层实现上是自己写了epoll 
 5. sorted sets
 
     * 和set一样sorted set也是string类型元素的集合，不同的是每个元素都会关联一个double类型的score。sorted set的实现是skip list和hash table的混合体。
-
-　　* 当元素被添加到集合中时，一个元素到score的映射被添加到hash table中，所以给定一个元素获取score的开销是O(1),另一个score到元素的映射被添加到skip list，并按照score排序，所以就可以有序的获取集合中的元素。添加，删除操作开销都是O(log(N))和skip list的开销一致,redis的skip list实现用的是双向链表,这样就可以逆序从尾部取元素。sorted set最经常的使用方式应该是作为索引来使用.我们可以把要排序的字段作为score存储，对象的id当元素存储。下面是sorted set相关命令
+    * 当元素被添加到集合中时，一个元素到score的映射被添加到hash table中，所以给定一个元素获取score的开销是O(1),另一个score到元素的映射被添加到skip list，并按照score排序，所以就可以有序的获取集合中的元素。添加，删除操作开销都是O(log(N))和skip list的开销一致,redis的skip list实现用的是双向链表,这样就可以逆序从尾部取元素。sorted set最经常的使用方式应该是作为索引来使用.我们可以把要排序的字段作为score存储，对象的id当元素存储。下面是sorted set相关命令
     * zadd
         * 向名称为key的zset中添加元素member，score用于排序。如果该元素已经存在，则根据score更新该元素的顺序
         * zadd myzset 1 "one"
