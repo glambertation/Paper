@@ -1,33 +1,42 @@
+* refresh
+    * 参考文献
+        * 数量
+        * 加入正文
+    * 第四章字段梳理
+    * 国内外研究现状
+    * 摘要
+    * 小结
+    * go ..
 * schedule
     * tonight
-        * 重新跑图 - 1h
-        * 国内外研究现状 - 1h
-        * python go 框架 - 1h
-        * 异步处理 - 1h
-        * 事件定义 - 1h
-        * 每章小节 - 1h
+        * 重新跑图 - done
+        * 国内外研究现状 - give up
+        * python go 框架 - done
+        * 异步处理 - done
+        * 事件定义 - give up
+        * 每章小节 - done
     * tomorrow
-        * 第四章逻辑细节
-        * 接口，字段，注释，梳理
-        * 刷格式
+        * 第四章逻辑细节 - give up 2333
+        * 接口，字段，注释，梳理 - 还没改完字段
+        * 刷格式 - done
     * day1 
-        * 代码逻辑补充梳理
-        * 接口，字段，注释，重新梳理
+        * 代码逻辑补充梳理 - done
+        * 接口，字段，注释，重新梳理 - give up
         * 测试环境写完 -- done
-        * 国内外研究现状
+        * 国内外研究现状 -- give up
     * day2
         * 异步处理 --done
-        * python
-        * go
+        * python -- done
+        * go -- give up
     * day3
-        * 把批注的都改了
-        * 把图重新跑
-        * 刷格式
+        * 把批注的都改了 - done
+        * 把图重新跑 -done
+        * 刷格式 - done
     * 不太急
-        * 梳理创新点
-        * redis持久化
-        * 异步消息事件设计
-        * python框架
+        * 梳理创新点 - notyet
+        * redis持久化 - notyet
+        * 异步消息事件设计 - notyet
+        * python框架 - done
 
 
 * 紧迫
