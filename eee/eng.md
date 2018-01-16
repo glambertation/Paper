@@ -235,6 +235,30 @@ convention 约定
         * 可以看出，每次通过实例访问属性，都会经过__getattribute__函数。而当属性不存在时，仍然需要访问__getattribute__，不过接着要访问__getattr__。这就好像是一个异常处理函数。 
         * 每次访问descriptor（即实现了__get__的类），都会先经过__get__函数。
         * http://luozhaoyu.iteye.com/blog/1506426
+        * https://docs.python.org/release/2.5.2/ref/attribute-access.html
+            * __getattr__ 当调用不属于实例或者类的属性时调用
+                * Called when an attribute lookup has not found the attribute in the usual places (i.e. it is not an instance attribute nor is it found in the class tree for self). name is the attribute name. This method should return the (computed) attribute value or raise an AttributeError exception.
+            * __setattr__ class
+                * Called when an attribute assignment is attempted. This is called instead of the normal mechanism (i.e. store the value in the instance dictionary). name is the attribute name, value is the value to be assigned to it.
+                * If __setattr__() wants to assign to an instance attribute, it should not simply execute "self.name = value" -- this would cause a recursive call to itself. Instead, it should insert the value in the dictionary of instance attributes, e.g., "self.__dict__[name] = value". For new-style classes, rather than accessing the instance dictionary, it should call the base class method with the same name, for example, "object.__setattr__(self, name, value)".
+                * 设置实例属性时 "self.__dict__[name] = value".
+                * 设置类属性 "self.name = value"
+            * __getattribute__( self, name)
+                * Called unconditionally to implement attribute accesses for instances of the class. If the class also defines __getattr__(), the latter will not be called unless __getattribute__() either calls it explicitly or raises an AttributeError. This method should return the (computed) attribute value or raise an AttributeError exception. In order to avoid infinite recursion in this method, its implementation should always call the base class method with the same name to access any attributes it needs, for example, "object.__getattribute__(self, name)".
+
+        * 其他
+            * __getattr__
+                * 属性没有找到时 被调用 
+                * 通过self.attr访问属性 会造成无限递归错误
+            * __getattribute__
+                * 随时被调用
+                * self.attr访问 递归错误
+                * Attribute错误时调用__getattr__
+            * __setattr__
+                * 对实例属性赋值
+            * https://www.cnblogs.com/elie/p/6685429.html
+            * https://www.cnblogs.com/wwxbi/p/7751778.html
+
          
 * del
     * 可以删数组元素 可以删整个数组
